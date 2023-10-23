@@ -282,6 +282,32 @@ nav {
 #about-section {
   background: url(/images/bg-services.jpg) top center/cover;
 }
+#about-section img {
+  height: 100%;
+  flex-basis: 100%;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.about-divider {
+  background-color: rgba(0, 0, 0, 0.20);
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+.about-details {
+  padding: 0 20px;
+}
+.about-heading {
+  font-size: 1.5rem;
+  color: white;
+  margin: 10px 0;
+}
+.about-description {
+  color: white;
+  line-height: 1.4;
+}
 
 /* .service-item > div {
   background: transparent;
