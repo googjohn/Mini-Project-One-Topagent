@@ -98,7 +98,7 @@ nav {
   /* background-color: transparent; */
   /* background: rgba(255, 255, 255, 0.5); */
   /* backdrop-filter: blur(8px); */
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -286,13 +286,13 @@ nav {
   height: 100%;
   flex-basis: 100%;
   object-fit: cover;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 .about-divider {
   background-color: rgba(0, 0, 0, 0.20);
   backdrop-filter: blur(8px);
-  border-radius: 4px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
 }
@@ -309,7 +309,70 @@ nav {
   line-height: 1.4;
 }
 
-/* .service-item > div {
-  background: transparent;
-  padding: 0;
+/* faq accordion */
+/* .accordion {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.accordion-button {
+  display: block;
+  padding: 20px 10px;
+  width: 100%;
+  text-align: start;
+  border-bottom: 1px solid rgba(73, 72, 72, 0.8);
 } */
+
+/* custom accordion */
+#accordion-container {
+  border-radius: 10px;
+  border: 0;
+  overflow: hidden;
+}
+.faq-accordion-btn {
+  text-align: start;
+  /* display: block; */
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  border: none;
+  border-bottom: 1px solid rgba(73, 72, 72, 0.8);
+
+  font-size: 1.2rem;
+}
+.faq-accordion-item:first-child .faq-accordion-btn {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.faq-accordion-item:last-child .faq-accordion-btn {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.faq-accordion-btn:hover {
+  cursor: pointer;
+}
+.faq-accordion-content {
+  display: none;
+  padding: 20px;
+  color: white;
+  background-color: rgba(150, 150, 150, .5);
+  border-bottom: 1px solid rgba(73, 72, 72, 0.8);
+}
+.faq-accordion-item:last-child .faq-accordion-content {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  
+}
+.faq-accordion a {
+  text-decoration: underline;
+}
+.faq-active {
+  /* border-bottom: 0; */
+}
+.faq-accordion-btn i {
+  position: absolute;
+  right: 20px;
+}
+.down-side-up {
+  transform: rotate(180deg);
+}

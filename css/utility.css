@@ -81,8 +81,8 @@ a::after {
   transform: translateX(50%);
 }
 
-a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-section a):hover::before,
-a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-section a):hover::after {
+a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-section a, .faq-accordion a):hover::before,
+a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-section a, .faq-accordion a):hover::after {
   width: 100%;
 }
 
