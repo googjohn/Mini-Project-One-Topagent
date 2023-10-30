@@ -1,37 +1,48 @@
-/* const slideOne = document.getElementById('slide-1');
-slideOne.src = '/images/gallery-slider/slide-1.jpg';
-const slideTwo = document.getElementById('slide-2');
-slideTwo.src = '/images/gallery-slider/slide-2.jpg';
-const slideThree = document.getElementById('slide-3');
-slideThree.src = '/images/gallery-slider/slide-3.jpg';
+const typingText = document.querySelector('#type-text');
+const textArray = [
+  "beautifully designed houses",
+  "housing loan calculation",
+  "free online booking for site viewing"
+]
+const delay = 1000;
 
-const slides = [
-  slideOne.src,
-  slideTwo.src,
-  slideThree.src
-];
+      let index = 0;
+      let currentText = "";
+      let isDeleting = false;
 
-const carouselSlide = document.getElementById('slide-1')
-const slide=[]
-function carousel(){
-  for (let i = 0; i < slides.length; i++) {
-    slide.push(slides[i]);
-  }
-  const divElement = document.createElement('div');
-  divElement.id = 'slideOne';
-  divElement.innerHTML = `
-    <img src=${slide[0]}>
-    `
-  carouselSlide.appendChild(divElement)
-} */
-// carousel()
+      function type() {
+        const text = textArray[index];
+        if (isDeleting) {
+          currentText = text.substring(0, currentText.length - 1);
+        } else {
+          currentText = text.substring(0, currentText.length + 1);
+        }
 
-// function scrollFix(){
-//   if(window.document.body.scrollTop > 100 ||
-//     window.documentElement.scrollTop > 100) {
-      
-//     }
-// }
+        typingText.innerHTML = currentText;
+
+        let typeSpeed = 120;
+
+        if (isDeleting) {
+          typeSpeed /= 2;
+        }
+
+        if (!isDeleting && currentText === text) {
+          typeSpeed = delay;
+          isDeleting = true;
+        } else if (isDeleting && currentText === "") {
+          isDeleting = false;
+          index++;
+          if (index === textArray.length) {
+            index = 0;
+          }
+        }
+
+        setTimeout(() => {
+          type();
+        }, typeSpeed);
+      }
+
+      type();
 
 window.addEventListener('wheel', scrollToNextSection);
 
@@ -72,6 +83,25 @@ function scrollToNextSection(event) {
   }
 }
 
-const backToTop = () => {
-  
+let btn = document.getElementById('back-to-top')
+
+window.addEventListener('scroll', scrollToTop);
+function scrollToTop () {
+  if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none"
+  }
 }
+
+btn.addEventListener('click', backToTop)
+function backToTop () {
+  document.body.scrollTop = 0
+  document.documentElement.scrollTop = 0
+  const firstSection = document.querySelector('section:first-child')
+  if (firstSection) {
+    firstSection.scrollIntoView({ behavior: 'smooth' });
+    firstSection.classList.add('active');
+  }
+}
+

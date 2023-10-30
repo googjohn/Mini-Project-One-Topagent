@@ -35,71 +35,229 @@ const slides = [
 
 // carousel display
 const carouselDisplay = document.querySelector('.carousel-slide');
+// carouselDisplay.classList.add('slide-effect');
 let countCurrent = 0;
-carouselDisplay.innerHTML = `
-  
-  <img src=${slides[countCurrent].image}>
-  <div class="carousel-description overlay">
-  <p>${slides[countCurrent].location}</p>
-  <h3><span>${slides[countCurrent].name}</span> Model House</h3>
-  <p>${slides[countCurrent].description}</p>
-  <a class="btn" href="#view-more">View more</a>
+let intervalId;
 
-  </div>
-`;
-prevBtn.onclick = () => {
-  countCurrent--;
-  if(countCurrent < 0){
-    countCurrent = slides.length - 1;
-    return carouselDisplay.innerHTML = `
-  
-    <img src=${slides[countCurrent].image}>
+function createCarouselItem(slide) {
+  const item = document.createElement('div');
+  item.classList.add('carousel-item');
+  item.innerHTML = `
+    <img src=${slide.image}>
     <div class="carousel-description overlay">
-  <p>${slides[countCurrent].location}</p>
-  <h3><span>${slides[countCurrent].name}</span> Model House</h3>
-  <p>${slides[countCurrent].description}</p>
-  <a class="btn" href="#view-more">View more</a>
-  </div>
-    `
-  }
-  carouselDisplay.innerHTML = `
-  
-  <img src=${slides[countCurrent].image}>
-  <div class="carousel-description overlay">
-  <p>${slides[countCurrent].location}</p>
-  <h3><span>${slides[countCurrent].name}</span> Model House</h3>
-  <p>${slides[countCurrent].description}</p>
-  <a class="btn" href="#view-more">View more</a>
-  </div>
-  `
-
-}
-
-setInterval(
-nextBtn.onclick = () => {
-  countCurrent++;
-  if(countCurrent > slides.length - 1){
-    countCurrent = 0;
-    return carouselDisplay.innerHTML = `
-  
-    <img src=${slides[countCurrent].image}>
-  <div class="carousel-description overlay">
-  <p>${slides[countCurrent].location}</p>
-  <h3><span>${slides[countCurrent].name}</span> Model House</h3>
-  <p>${slides[countCurrent].description}</p>
-  <a class="btn" href="#view-more">View more</a>
-
-   </div>`;
-  }
-  carouselDisplay.innerHTML = `
-  
-  <img src=${slides[countCurrent].image}>
-  <div class="carousel-description overlay">
-  <p>${slides[countCurrent].location}</p>
-  <h3><span>${slides[countCurrent].name}</span> Model House</h3>
-  <p>${slides[countCurrent].description}</p>
-  <a class="btn" href="#view-more">View more</a>
-  </div>
+      <p>${slide.location}</p>
+      <h3><span>${slide.name}</span> Model House</h3>
+      <p>${slide.description}</p>
+      <a class="btn" href="#view-more">View more</a> 
+    </div>
   `;
+  return item;
 }
-, 5000);
+
+function carouselStart() {
+  const carouselDisplay = document.querySelector('.carousel-slide');
+  let countCurrent = 0;
+  let currentSlide = null;
+
+
+  function switchSlide() {
+    const nextSlideIndex = (countCurrent + 1) % slides.length;
+    const nextSlide = createCarouselItem(slides[nextSlideIndex]);
+
+    nextSlide.style.transform = 'translateX(100%)';
+    carouselDisplay.appendChild(nextSlide);
+
+    setTimeout(() => {
+      currentSlide.style.transform = 'translateX(-50%)';
+      currentSlide.style.marginRight = '-100%';
+      // currentSlide.style.opacity = 0;
+      nextSlide.style.transform = 'translateX(0)';
+      // nextSlide.style.opacity = 1;
+    }, 100);
+
+    setTimeout(() => {
+      currentSlide.remove();
+      currentSlide.style.transform = '';
+      currentSlide.classList.remove('current');
+
+      nextSlide.style.transform = '';
+      nextSlide.classList.add('current');
+      countCurrent = nextSlideIndex;
+
+      currentSlide = nextSlide; // Update the current slide
+    }, 3500);
+  }
+
+  currentSlide = createCarouselItem(slides[countCurrent]); // Create initial slide
+  carouselDisplay.appendChild(currentSlide); // Append initial slide
+
+  switchSlide(); // Initial slide setup
+
+  setInterval(switchSlide, 4000); // Switch to next slide periodically
+}
+
+carouselStart();
+
+
+// carouselDisplay.innerHTML = `
+  
+//   <img src=${slides[countCurrent].image}>
+//   <div class="carousel-description overlay">
+//   <p>${slides[countCurrent].location}</p>
+//   <h3><span>${slides[countCurrent].name}</span> Model House</h3>
+//   <p>${slides[countCurrent].description}</p>
+//   <a class="btn" href="#view-more">View more</a>
+
+//   </div>
+// `;
+
+// prevBtn.onclick = () => {
+//   countCurrent--;
+//   if(countCurrent < 0){
+//     countCurrent = slides.length - 1;
+//     return carouselDisplay.innerHTML = `
+  
+//     <img src=${slides[countCurrent].image}>
+//     <div class="carousel-description overlay">
+//   <p>${slides[countCurrent].location}</p>
+//   <h3><span>${slides[countCurrent].name}</span> Model House</h3>
+//   <p>${slides[countCurrent].description}</p>
+//   <a class="btn" href="#view-more">View more</a>
+//   </div>
+//     `
+//   }
+//   carouselDisplay.innerHTML = `
+  
+//   <img src=${slides[countCurrent].image}>
+//   <div class="carousel-description overlay">
+//   <p>${slides[countCurrent].location}</p>
+//   <h3><span>${slides[countCurrent].name}</span> Model House</h3>
+//   <p>${slides[countCurrent].description}</p>
+//   <a class="btn" href="#view-more">View more</a>
+//   </div>
+//   `
+
+// }
+
+// setInterval(
+// nextBtn.onclick = () => {
+//   countCurrent++;
+//   if(countCurrent > slides.length - 1){
+//     countCurrent = 0;
+//     return carouselDisplay.innerHTML = `
+  
+//     <img src=${slides[countCurrent].image}>
+//   <div class="carousel-description overlay">
+//   <p>${slides[countCurrent].location}</p>
+//   <h3><span>${slides[countCurrent].name}</span> Model House</h3>
+//   <p>${slides[countCurrent].description}</p>
+//   <a class="btn" href="#view-more">View more</a>
+
+//    </div>`;
+//   }
+//   carouselDisplay.innerHTML = `
+  
+//   <img src=${slides[countCurrent].image}>
+//   <div class="carousel-description overlay">
+//   <p>${slides[countCurrent].location}</p>
+//   <h3><span>${slides[countCurrent].name}</span> Model House</h3>
+//   <p>${slides[countCurrent].description}</p>
+//   <a class="btn" href="#view-more">View more</a>
+//   </div>
+//   `;
+// }
+// , 5000);
+
+
+// function carouselStart() {
+//   clearInterval(intervalId);
+//   const carouselDisplay = document.querySelector('.carousel-slide');
+//   let countCurrent = 0;
+ 
+//   const currentSlide = createCarouselItem(slides[countCurrent]);
+//   carouselDisplay.appendChild(currentSlide);
+ 
+//   intervalId = setInterval(() => {
+//     carouselDisplay.innerHTML = '';
+//     const nextSlideIndex = (countCurrent + 1) % slides.length;
+//     const nextSlide = createCarouselItem(slides[nextSlideIndex]);
+ 
+//     nextSlide.style.transform = 'translateX(100%)';
+//     carouselDisplay.appendChild(nextSlide);
+ 
+//     setTimeout(() => {
+//       currentSlide.style.transform = 'translateX(-100%)';
+//       nextSlide.style.transform = 'translateX(0)';
+//     }, 100);
+//     setTimeout(() => {
+//       currentSlide.remove();
+//       currentSlide.style.transform = '';
+//       currentSlide.classList.remove('current');
+
+//       nextSlide.style.transform = '';
+//       nextSlide.classList.add('current');
+//       countCurrent = nextSlideIndex;
+//     }, 1000);
+//   }, 5000);
+// }
+
+// carouselStart();
+
+
+// function carouselStart () {
+//     countCurrent++;
+//     if(countCurrent >= slides.length){
+//       countCurrent = 0
+//     }
+//     carouselDisplay.innerHTML = 
+//     `<img src=${slides[countCurrent].image}>
+//     <div class="carousel-description overlay">
+//     <p>${slides[countCurrent].location}</p>
+//     <h3><span>${slides[countCurrent].name}</span> Model House</h3>
+//     <p>${slides[countCurrent].description}</p>
+//     <a class="btn" href="#view-more">View more</a> 
+//     </div>
+//     `
+//     setTimeout(() => {
+//       clearInterval(intervalId)
+//       intervalId = setInterval(() => {
+//         nextBtn.onclick = carouselStart()
+//     }, 3000)
+//     }, countCurrent * 3000)
+// }
+// carouselStart()
+
+
+// setTimeout(()=> {
+//   clearInterval(intervalId);
+
+//   intervalId = setInterval(()=> {
+//     nextBtn.onclick = () => {
+//        countCurrent++;
+//   if(countCurrent > slides.length - 1){
+//     countCurrent = 0;
+//     return carouselDisplay.innerHTML = `
+  
+//     <img src=${slides[countCurrent].image}>
+//   <div class="carousel-description overlay">
+//   <p>${slides[countCurrent].location}</p>
+//   <h3><span>${slides[countCurrent].name}</span> Model House</h3>
+//   <p>${slides[countCurrent].description}</p>
+//   <a class="btn" href="#view-more">View more</a>
+
+//    </div>`;
+//   }
+//       carouselDisplay.innerHTML = `
+//       <img src=${slides[countCurrent].image}>
+//       <div class="carousel-description overlay">
+//       <p>${slides[countCurrent].location}</p>
+//       <h3><span>${slides[countCurrent].name}</span> Model House</h3>
+//       <p>${slides[countCurrent].description}</p>
+//       <a class="btn" href="#view-more">View more</a>
+      
+//       </div>
+//       `;
+//     }
+//   }, 3000)
+// }, 3000)
+

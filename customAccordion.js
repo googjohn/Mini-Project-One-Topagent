@@ -78,7 +78,7 @@ accordionBtn.forEach(function(heading){
    
     // heading.classList.contains('active faq-active') && (content.style.display === 'block')? heading.style.borderBottom = '0' : heading.style.borderBottom = '1px solid red';
     accordionBtnArrow.forEach(function (arrow) {
-      if(content.style.display === 'block' && heading.classList.contains('active')){
+      if(content.style.display === 'block'){
         arrow.classList.add('down-side-up')
 
       } else {
@@ -90,4 +90,5 @@ accordionBtn.forEach(function(heading){
     activeContent = content;
   });
 })
+
 
