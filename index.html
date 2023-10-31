@@ -58,23 +58,54 @@
   <header>
     <nav id="navbar">
       <div class="navbar container">
-        <a id="navlogo" href="#"><img src="/images/logo-no-bg.png" alt="Topagent Logo" title="Topagent Logo"></a>
-        <ul class="navlink">
-          <li><a href="#">Home</a></li>
-          <li><a href="#services-section">Services</a></li>
-          <li><a href="#about-section">About</a></li>
-          <li class="dropdown">
-            <a role="button" class="dropbtn">Properties</a>
-            <ul id="properties-list" class="dropdown-menu">
-              <li><a href="#condominium">Condominium</a></li>
-              <li><a href="#house-and-lot">House and Lot</a></li>
-              <li><a href="#commercial-space">Commercial Space</a></li>
-              <li><a href="#land">Land</a></li>
+        <div>
+
+          <a id="navlogo" href="/"><img src="/images/logo-no-bg.png" alt="Topagent Logo" title="Topagent Logo"></a>
+        </div>
+        <div>
+
+          <ul class="navlink">
+            <li class="nav-link-item"><a href="/">Home</a></li>
+            <li class="nav-link-item dropdown">
+              <a href="#services-section" role="button" aria-label="Contains a list of serives provided">Services</a>
+              <ul id="services-list" class="dropdown-menu">
+                <li><a href="#services-section">Land title assistance</a></li>
+                <li><a href="#services-section">Pagibig assistance</a></li>
+                <li><a href="#services-section">Bank loan assistance</a></li>
+                <li><a href="#services-section">Property site viewing</a></li>
+                <li><a href="#services-section">Legal Assistance</a></li>
+                <li><a href="#services-section">Virtual tour</a></li>
+              </ul>
+            </li>
+            <li class="nav-link-item dropdown">
+              <a href="/" role="button" class="dropbtn" aria-label="Contains list of property categories">Properties</a>
+              <ul id="properties-list" class="dropdown-menu">
+                <li><a target="_blank" href="condominium.html">Condominium</a></li>
+              <li><a target="_blank" href="houseandlot.html">House and Lot</a></li>
+              <li><a target="_blank" href="commercialspace.html">Commercial Space</a></li>
+              <li><a target="_blank" href="land.html">Land</a></li>
             </ul>
             
           </li>
-          <li><a href="#contact-section">Contact</a></li>
+          <li class="nav-link-item"><a href="#about-section">About</a></li>
+          <li class="nav-link-item"><a href="#contact-section">Contact</a></li>
         </ul>
+      </div>
+        <div class="user-search">
+          <form action="" role="search">
+            <input type="search" id="search-input" name="search" placeholder="Search...">
+            <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i></label> 
+          </form>
+          <div class="user dropdown">
+            <a class="user-link" href="#" role="button"><i class="fa-solid fa-user-large"></i></a>
+            <ul id="user-menu" class="dropdown-menu">
+              <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-user-large"></i></span> Profile</a></li>
+              <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-gear"></i></span> Settings and Privacy</a></li>
+              <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-circle-question"></i></span> Help and support</a></li>
+              <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-arrow-right-from-bracket"></i></span> Logout</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </nav>
   </header>
@@ -100,7 +131,7 @@
           <div class="service-item">
             <i class="fas fa-handshake service-icon"></i>
             <h4 class="service-title">
-              <a href="">Land Titling Assistance</a>
+              <a href="#services-section">Land Titling Assistance</a>
             </h4>
             <p class="service-description">
               "Unlocking the power of property ownership with hassle-free land
@@ -109,7 +140,9 @@
           </div>
           <div class="service-item">
             <i class="fas fa-list-check service-icon"></i>
-            <h4 class="service-title"><a href="">PAG-IBIG Assistance</a></h4>
+            <h4 class="service-title">
+              <a href="#services-section">PAG-IBIG Assistance</a>
+            </h4>
             <p class="service-description">
               "Empowering your dreams of homeownership with affordable
               Pag-IBIG loans."
@@ -117,7 +150,9 @@
           </div>
           <div class="service-item">
             <i class="fas fa-bank service-icon"></i>
-            <h4 class="service-title"><a href="">Bank Loan Assistance</a></h4>
+            <h4 class="service-title">
+              <a href="#services-section">Bank Loan Assistance</a>
+            </h4>
             <p class="service-description">
               "Realize your financial goals with flexible and reliable bank
               loans."
@@ -126,7 +161,7 @@
           <div class="service-item">
             <i class="fas fa-binoculars service-icon"></i>
             <h4 class="service-title">
-              <a href="">Property Site Viewing</a>
+              <a href="#services-section">Property Site Viewing</a>
             </h4>
             <p class="service-description">
               "Discover your future home with our personalized property
@@ -137,7 +172,9 @@
             
             <i class="fa-solid fa-gavel service-icon"></i>
             
-            <h4 class="service-title"><a href="">Legal Assistance</a></h4>
+            <h4 class="service-title">
+              <a href="#services-section">Legal Assistance</a>
+            </h4>
             <p class="service-description">
               "Expert legal guidance for every need - trust us to protect your
               rights and interests."
@@ -147,12 +184,43 @@
             
             <i class="fas fa-laptop service-icon"></i>
             
-            <h4 class="service-title"><a href="">Virtual Tour</a></h4>
+            <h4 class="service-title">
+              <a href="#services-section">Virtual Tour</a>
+            </h4>
             <p class="service-description">
               "Experience spaces like never before with immersive 360 virtual
               tours."
             </p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="subscribe-section">
+    <div class="wrapper">
+      <div class="sub-con">
+        <div class="section-heading">
+          <div class="wrapper">
+
+            <h3 class="section-title">Subscribe</h3>
+            <div class="section-divider"></div>
+            <p class="section-description"></p>
+          </div>
+        </div>
+        <div class="subscribe-details subscribe-content">
+          <div class="">
+            <h3 class="subscribe-heading">Subscribe For Updates</h3>
+            <p class="subscribe-text">
+              Join our 1000+ subscribers and get access to the latest postings,
+              freebies, product announcements and much more!
+            </p>
+          </div>
+          <div class="subscribe-btn-container">
+            <a class="btn" href="#contact-form">Subscribe Now</a>
+          </div>
+        </div>
+        <div class="subscribe-footerr">
+          <div class="wrapper"></div>
         </div>
       </div>
     </div>
@@ -254,12 +322,13 @@
       </div>
     </div>
   </section>
-  <section id="contact-section"></section>
+  
   <footer id="footer-section">
     <div class="back-to-top">
       <button id="back-to-top"  type="button"><i class="fa-solid fa-arrow-up"></i></button>
     </div>
   </footer>
+  
   
   
  
