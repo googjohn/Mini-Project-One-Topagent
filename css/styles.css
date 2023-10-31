@@ -119,7 +119,7 @@ nav {
   font-size: 1.1rem;
   color: white;
   padding: 10px;
-  border-bottom: 1px solid rgba(255,255,255, .3);
+  /* border-bottom: 1px solid rgba(255,255,255, .3); */
 }
 .nav-link-item > a {
   font-weight: 500;
