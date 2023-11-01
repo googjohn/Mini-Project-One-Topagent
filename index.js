@@ -47,8 +47,7 @@ type();
 window.addEventListener('wheel', scrollToNextSection);
 
 function scrollToNextSection(event) {
-  event.preventDefault();
-
+  
   const delta = event.deltaY || event.wheelDelta;
 
   if (delta < 0) {
@@ -88,7 +87,7 @@ let btn = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', scrollToTop);
 function scrollToTop () {
-  if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+  if(document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
     btn.style.display = "block";
   } else {
     btn.style.display = "none"
@@ -105,4 +104,35 @@ function backToTop () {
     firstSection.classList.add('active');
   }
 }
+
+// const navBlur = document.getElementById('navbar');
+
+// console.log(navBlur);
+// // navBlur.classList.remove('blurred')
+// const buttons = document.querySelectorAll('.dropdown')
+// console.log(buttons);
+
+// const dropdown = document.querySelectorAll('.dropdown')
+// const dropdownBlur = document.querySelectorAll('.dropdown-menu');
+// console.log(dropdownBlur)
+
+
+
+// buttons.forEach((button) => {
+//   button.addEventListener('mouseover', ()=>{
+//     navBlur.classList.remove('blurred')
+//     dropdownBlur.forEach(menu => {
+//       menu.classList.add('blurred')
+//     })
+//   })
+//   button.addEventListener('mouseout', ()=>{
+//     navBlur.classList.add('blurred')
+//     dropdownBlur.forEach(menu => {
+//       menu.classList.add('blurred')
+//     })
+//   })
+// })
+
+
+
 

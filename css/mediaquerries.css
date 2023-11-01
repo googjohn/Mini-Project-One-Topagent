@@ -1,3 +1,36 @@
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 560px) {
+  .hero-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    gap: 20px;
+  }
+
+  .hero-texts p {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255, .5);
+  }
   
+  .hero-texts h1 {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 4rem;
+    padding: 0 20px;
+  }
+
+  .hero-container .hero-logo {
+    max-width: 360px;
+    height: 130px;
+  }
+  
+  .hero-container .hero-logo img {
+    max-width: 100% ;
+    height: auto;
+    object-fit: cover;
+  }
 }
