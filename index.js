@@ -134,5 +134,43 @@ function backToTop () {
 // })
 
 
+// make element blur after some scrolling or near out of view
+/* const gallerySectionBlur = document.getElementById('gallery-section');
+console.log(gallerySectionBlur) 
+const initialScrollPosition = window.innerHeight
+window.addEventListener('scroll', scrollOut);
+function scrollOut(){
+  const delta = window.scrollY - initialScrollPosition;
+  if(delta > 500){
+    gallerySectionBlur.style.filter = 'blur(4px)'
+  } else {
+    gallerySectionBlur.style.filter = 'blur(0)'
+  }
+} */
 
+// let gallery = document.getElementById('gallery-section');
 
+// window.addEventListener("scroll", function() {
+//   const scrollPosition = window.scrollY;
+//   // Your scroll event handling code here
+//   console.log(scrollPosition);
+//   if(scrollPosition < 200){
+//     gallery.style.filter = 'blur(8px)'
+//   } else if(scrollPosition > 1000){
+//     gallery.style.filter = 'blur(8px)'
+//     // gallery.style.height = '35vh'
+//     // gallery.style.transition = 'height 1s ease'
+//   } else {
+//     // gallery.style.transition = 'height 1s ease'
+//     // gallery.style.height = '100vh'
+//     // gallery.style.transform = 'translateY(0)'
+//     gallery.style.filter = 'blur(0)'
+//   }
+// });
+const gallery = document.getElementById('gallery-section')
+
+window.addEventListener('wheel', scroll)
+function scroll () {
+  const elements = window.scrollY
+  console.log(elements);
+}

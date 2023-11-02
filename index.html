@@ -21,7 +21,8 @@
    crossorigin="anonymous"
    referrerpolicy="no-referrer"
   />
-  
+  <!-- boxicon -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <!-- Bootstrap -->
   <!-- <Link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
 
@@ -65,7 +66,7 @@
         <ul class="navlink">
           <li class="nav-link-item"><a href="/">Home</a></li>
           <li class="nav-link-item dropdown">
-            <a href="#services-section" class="dropbtn" role="button" aria-label="Contains a list of serives provided">Services</a>
+            <a href="#services-section" class="dropbtn" role="button" aria-label="Contains a list of serives provided">Services <box-icon class="spinning-element" color='white'  name='chevron-down'></box-icon></a>
             <ul id="services-list" class="dropdown-menu">
               <li><a href="#services-section">Land title assistance</a></li>
               <li><a href="#services-section">Pagibig assistance</a></li>
@@ -76,7 +77,7 @@
             </ul>
           </li>
           <li class="nav-link-item dropdown">
-            <a href="/" role="button" class="dropbtn" aria-label="Contains list of property categories">Properties</a>
+            <a href="/" role="button" class="dropbtn" aria-label="Contains list of property categories">Properties <box-icon color='white' name='chevron-down'></box-icon></a>
             <ul id="properties-list" class="dropdown-menu">
               <li><a target="_blank" href="condominium.html">Condominium</a></li>
               <li><a target="_blank" href="houseandlot.html">House and Lot</a></li>
@@ -118,7 +119,7 @@
     </div>
   </section>
   <section id="services-section">
-    <div class="wrapper">
+    <div class="">
       <div class="container">
         <div>
           <h3 class="section-title">Our Services</h3>
@@ -262,7 +263,7 @@
           <article>
             <div class="faq-accordion" id="accordion-container">
               <div class="faq-accordion-item">
-                <button class="faq-accordion-btn">Where exactly are you located?<i class="fa-solid fa-chevron-down"></i></button>
+                <button class="faq-accordion-btn">Where exactly are you located?<span class="indicator"><i class="fa-solid fa-chevron-down"></i></span></button>
                 <div class="faq-accordion-content">
                   <p>18th floor, The W Fifth Avenue, 5th Ave, Taguig, 1630</p>
                   <a href="#">Link here</a>
@@ -270,7 +271,7 @@
               </div>
             
               <div class="faq-accordion-item">
-                <button class="faq-accordion-btn">How do I buy realty?<i class="fa-solid fa-chevron-down"></i></button>
+                <button class="faq-accordion-btn">How do I buy realty?<span class="indicator"><i class="fa-solid fa-chevron-down"></i></span></button>
                 <div class="faq-accordion-content">
                   <p>To buy realty, you should work with a licensed real estate agent who can help you find properties that meet your needs and budget. Once you've found a property you're interested in, you'll typically make an offer through your agent, and negotiate a price with the seller. You'll then need to secure financing, complete inspections, and close the sale.</p>
                   <a href="#">Talk with our most sought agents</a>
@@ -278,7 +279,7 @@
               </div>
            
               <div class="faq-accordion-item">
-                <button class="faq-accordion-btn"> What is a real estate broker?<i class="fa-solid fa-chevron-down"></i></button>
+                <button class="faq-accordion-btn"> What is a real estate broker?<span class="indicator"><i class="fa-solid fa-chevron-down"></i></span></button>
                 <div class="faq-accordion-content">
                   <p>A real estate broker is a licensed professional who has
                     completed additional training and education beyond that
@@ -292,7 +293,7 @@
               </div>
             
               <div class="faq-accordion-item">
-                <button class="faq-accordion-btn">What is a real estate agent?<i class="fa-solid fa-chevron-down"></i></button>
+                <button class="faq-accordion-btn">What is a real estate agent?<span class="indicator"><i class="fa-solid fa-chevron-down"></i></span></button>
                 <div class="faq-accordion-content">
                   <p> A real estate agent is a licensed professional who helps
                     buyers and sellers with the process of buying or selling
@@ -304,7 +305,7 @@
               </div>
             
               <div class="faq-accordion-item">
-                <button class="faq-accordion-btn">What is the difference between realty and real property?<i class="fa-solid fa-chevron-down"></i></button>
+                <button class="faq-accordion-btn">What is the difference between realty and real property?<span class="indicator"><i class="fa-solid fa-chevron-down"></i></span></button>
                 <div class="faq-accordion-content">
                   <p>Realty and real property are two terms used interchangeably to
                     refer to land and any permanent improvements made to it.
@@ -333,6 +334,7 @@
   <script src="/index.js"></script>
   <script src="/customCarousel.js"></script>
   <script src="/customAccordion.js"></script>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> -->
 </body>
 </html>
