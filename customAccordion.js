@@ -157,6 +157,7 @@
 // });
 
 const accordionContainer = document.getElementById('accordion-container');
+
 let activeContent = null;
 
 accordionContainer.addEventListener('click', (e) => {
@@ -164,6 +165,8 @@ accordionContainer.addEventListener('click', (e) => {
   if (target.classList.contains('faq-accordion-btn')) {
     const content = target.nextElementSibling;
     const indicator = target.querySelector('.indicator');
+    const accordionItemLast = document.querySelectorAll('.faq-accordion-item:last-of-type');
+
     if (content) {
       if (activeContent && activeContent !== content) {
         activeContent.style.display = 'none';
@@ -181,6 +184,11 @@ accordionContainer.addEventListener('click', (e) => {
         target.classList.add('active');
         // indicator.style.transform = 'rotate(180deg)';
         indicator.classList.add('down-side-up')
+      }
+      if(!accordionItemLast) {
+        target.style.borderRadius = '0 0 10px 10px'
+      } else {
+        target.style.borderRadius = '0'
       }
       activeContent = content;
     }

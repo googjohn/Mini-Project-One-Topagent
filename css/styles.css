@@ -123,6 +123,9 @@ nav .dropdown-menu li a {
   padding: 10px 15px;
   /* border-bottom: 1px solid rgba(255,255,255, .3); */
 }
+.nav-link-item.dropdown {
+  padding-right: 15px;
+}
 .nav-link-item > a {
   font-weight: 500;
   color: #fff;
@@ -573,33 +576,39 @@ nav .dropdown-menu li a {
   background-color: rgba(0, 0, 0, .3);
   backdrop-filter: blur(8px);
 }
-#about-section img {
+.about-divider img {
   /* height: 100%; */
-  height: auto;
-  width: auto;
-  flex-basis: 100%;
-  object-fit: cover;
+  /* height: auto;
+  width: auto; */
+  /* flex-basis: 100%; */
+  /* flex-shrink: 1; */
+  width: 50%;
+  object-fit:cover;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 .about-divider {
-  /* background-color: rgba(0, 0, 0, 0.20); */
-  /* backdrop-filter: blur(8px); */
+  background-color: rgba(255,255,255, 0.20);
+  backdrop-filter: blur(8px);
   border-radius: 10px;
   display: flex;
-  align-items: center;
+  gap: 20px;
+  /* align-items: center; */
 }
 .about-details {
-  padding: 0 20px;
+  align-self: center;
+  padding: 0 20px 20px 0;
 }
 .about-heading {
   font-size: 1.5rem;
   color: white;
-  margin: 10px 0;
+  margin: 20px 0;
+  text-align: center;
 }
 .about-description {
   color: white;
-  line-height: 1.4;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 /* faq accordion */
@@ -618,12 +627,30 @@ nav .dropdown-menu li a {
 
 /* custom accordion */
 #faq-section {
+  position: relative;
   background: url(/images/bg-service.jpg) center center/cover;
+  background-color: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(8px);
+
 }
 #accordion-container {
   border-radius: 10px;
   border: 0;
   overflow: hidden;
+}
+.faq-container {
+  padding-top: 30px;
+}
+#faq-section .wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(150, 150, 150, .5); */
+  backdrop-filter: blur(8px);
+  z-index: -1;
 }
 #accordion-container .wrapper {
   background-color: rgba(0, 0, 0, .1);
@@ -635,7 +662,10 @@ nav .dropdown-menu li a {
   width: 100%;
   padding: 20px;
   border: none;
+  color: #fff;
+  background-color: rgba(255,255,255, .5);
   border-bottom: 1px solid rgba(73, 72, 72, 0.8);
+  backdrop-filter: blur(8px);
   font-size: 1.2rem;
 }
 .faq-accordion-item:first-child .faq-accordion-btn {
@@ -656,6 +686,8 @@ nav .dropdown-menu li a {
   color: white;
   background-color: rgba(150, 150, 150, .5);
   border-bottom: 1px solid rgba(73, 72, 72, 0.8);
+  backdrop-filter: blur(8px);
+
 }
 .faq-accordion-item:last-child .faq-accordion-content {
   border-bottom-left-radius: 10px;
@@ -663,7 +695,10 @@ nav .dropdown-menu li a {
   
 }
 .faq-accordion a {
+  color: blue;
   text-decoration: underline;
+  padding: 0;
+  padding-top: 10px;
 }
 .faq-active {
   /* border-bottom: 0; */
@@ -676,4 +711,187 @@ nav .dropdown-menu li a {
   transform: rotate(180deg);
 }
 
+/* contact */
+#contact-section {
+  position: relative;
+  /* background: url(/images/bg-contact.jpg) center center/cover; */
+  backdrop-filter: blur(8px);
+}
+#contact-section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  object-position: center top;
+}
+#contact-section .wrapper {
+  background-color: rgba(0,0,0, .6);
+  backdrop-filter: blur(8px);
+}
+/* .contact-divider {
+  display: flex;
+  gap: 20px;
+} */
+.contact-divider > div {
+  /* border: 1px solid green; */
+  flex-basis: 50%;
+  padding: 20px;
+  padding-top: 30px;
+  position: relative;
+  border-radius: 20px;
+  /* background-color: rgba(0, 0, 0, .3); */
+  backdrop-filter: blur(8px);
+}
+.first-name, .last-name,.email,.contact,.subject, .message {
+  display: flex;
+  white-space: nowrap;
+  justify-content: space-between;
+  position: relative;
+}
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 4px 0 rgba(255,255,255, .6);
 
+}
+.contact-form input {
+  /* position: absolute; */
+  width: 100%;
+  display: block;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 50px;
+  /* outline: 0; */
+  border: 0;
+  background-color: rgba(238, 233, 233, 0.247);
+  /* backdrop-filter: blur(8px); */
+  color: #fff;
+  font-weight: 500;
+}
+.contact-form label {
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  font-size: 1rem;
+  color: #fff;
+  display: block;
+}
+.message label {
+  /* flex-basis: 100%; */
+  top: -20px;
+}
+.contact-form textarea {
+  border-radius: 5px;
+  background-color: rgba(238, 233, 233, 0.247);
+  border: 0;
+  /* backdrop-filter: blur(8px); */
+  width: 100%;
+  color: #fff;
+  padding: 10px 15px;
+
+}
+
+#submit-btn {
+  width: max-content;
+  padding: 10px 20px ;
+  margin: auto;
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-size: 1rem;
+  border: 2px solid #fff;
+}
+#submit-btn:hover {
+  cursor: pointer;
+  background-color: #229b50;
+  backdrop-filter: blur(8px);
+  border: 2px solid #fff;
+  transition: all .3s ease;
+}
+#contact-form ::placeholder {
+  color: #fff;
+}
+#contact-form {
+  max-width: 100%;
+}
+.contact-reminder{
+  color: rgba(255,255,255, .6);
+  margin-top: 20px;
+  font-size: .9rem;
+}
+.contact-reminder a {
+  display: inline;
+  text-decoration: underline;
+}
+
+/* footer section */
+#footer-section {
+  background: linear-gradient(rgba(0,0,0, .2), rgba(0,0,0,.8));
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255,255,255, .8)
+}
+.footer-container {
+  display: grid;
+  /* padding: 20px; */
+  grid-template-columns: repeat(3, 1fr);
+}
+.footer-container > div {
+  padding: 20px 0;
+  place-self: center;
+}
+.footer-item:last-child {
+  padding: 0;
+  grid-column: span 3;
+  width: 100%;
+}
+.foot-item {
+  color: #fff;
+}
+.foot-item-header {
+  font-size: 2rem;
+  padding-bottom: 20px;
+}
+.foot-text {
+  color: rgba(255,255,255, .8);
+
+}
+.foot-item span.foot-text {
+  text-decoration: underline;
+  color: rgba(255,255,255, .8);
+}
+.footer-list li {
+  padding: 10px 0;
+}
+.footer-list .text-light {
+  color: #fff;
+  font-weight: 600;
+}
+#footer-section a {
+  padding: 5px;
+}
+#footer-section a:hover {
+  color: var(--primary-color);
+}
+.footer-company li{
+  display: flex;
+  gap: 5px;
+}
+.footer-company li i {
+  padding: 5px 0;
+  color: var(--primary-color);
+
+}
+.footer-social {
+  padding: 20px;
+}
+.foot-social {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.foot-last-item {
+  text-align: center;
+  padding: 30px 0;
+}
