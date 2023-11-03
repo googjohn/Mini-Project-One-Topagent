@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url(/images/bg-hero-main.jpg) no-repeat top center/ cover;
+  background: url(/images/bg-hero-main.jpg) no-repeat bottom center/cover;
 }
 
 .hero-container {
@@ -574,7 +574,7 @@ nav .dropdown-menu li a {
 
 #about-section .wrapper {
   background-color: rgba(0, 0, 0, .3);
-  backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px); */
 }
 .about-divider img {
   /* height: 100%; */
@@ -588,7 +588,8 @@ nav .dropdown-menu li a {
   border-bottom-left-radius: 10px;
 }
 .about-divider {
-  background-color: rgba(255,255,255, 0.20);
+  /* background-color: rgba(255,255,255, 0.20); */
+  background-color: rgba(0, 0, 0, .4);
   backdrop-filter: blur(8px);
   border-radius: 10px;
   display: flex;
@@ -610,20 +611,6 @@ nav .dropdown-menu li a {
   line-height: 1.5;
   text-align: justify;
 }
-
-/* faq accordion */
-/* .accordion {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-}
-
-.accordion-button {
-  display: block;
-  padding: 20px 10px;
-  width: 100%;
-  text-align: start;
-  border-bottom: 1px solid rgba(73, 72, 72, 0.8);
-} */
 
 /* custom accordion */
 #faq-section {
@@ -714,6 +701,7 @@ nav .dropdown-menu li a {
   position: relative;
   /* background: url(/images/bg-contact.jpg) center center/cover; */
   backdrop-filter: blur(8px);
+  height: 100%;
 }
 #contact-section img {
   position: absolute;
@@ -725,7 +713,7 @@ nav .dropdown-menu li a {
   object-fit: cover;
   object-position: center top;
 }
-#contact-section .wrapper {
+#contact-section .wrapper, #subscribe-form .wrapper {
   background-color: rgba(0,0,0, .6);
   backdrop-filter: blur(8px);
 }
@@ -740,16 +728,17 @@ nav .dropdown-menu li a {
   padding-top: 30px;
   position: relative;
   border-radius: 20px;
+  /* margin: auto; */
   /* background-color: rgba(0, 0, 0, .3); */
   backdrop-filter: blur(8px);
 }
-.first-name, .last-name,.email,.contact,.subject, .message {
+.first-name, .last-name,.email,.contact,.subject, .message, .password, .password2, .country, .birthday {
   display: flex;
   white-space: nowrap;
   justify-content: space-between;
   position: relative;
 }
-.contact-form {
+.contact-form, .sub-form-container {
   max-width: 600px;
   margin: auto;
   box-shadow: 0 0 4px 0 rgba(255,255,255, .6);
@@ -765,7 +754,7 @@ nav .dropdown-menu li a {
   /* outline: 0; */
   border: 0;
   background-color: rgba(238, 233, 233, 0.247);
-  /* backdrop-filter: blur(8px); */
+  backdrop-filter: blur(8px);
   color: #fff;
   font-weight: 500;
 }
@@ -790,7 +779,8 @@ nav .dropdown-menu li a {
   color: #fff;
   padding: 10px 15px;
 
-}
+} 
+
 
 #submit-btn {
   width: max-content;
@@ -814,7 +804,7 @@ nav .dropdown-menu li a {
 #contact-form {
   max-width: 100%;
 }
-.contact-reminder{
+#contact-form .contact-reminder{
   color: rgba(255,255,255, .6);
   margin-top: 20px;
   font-size: .9rem;
@@ -823,13 +813,49 @@ nav .dropdown-menu li a {
   display: inline;
   text-decoration: underline;
 }
-
+.contact-reminder a:hover, .flex-container a:hover:not(.flex-container .btn), .footer-list a:hover, #subscribe-form a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.flex-container {
+  display: flex;
+  padding: 40px 0;
+}
+.flex-container .flex-item {
+  flex-basis: calc(100% / 3);
+  text-align: center;
+  color: #fff;
+  padding: 60px 0;
+}
+.flex-item i,.flex-item h2, .flex-item p, .flex-item a {
+  padding: 10px;
+}
+.flex-item a:not(.flex-item .btn) {
+  text-decoration: underline;
+}
+.flex-item .btn {
+  background-color: transparent;
+  width: max-content;
+  margin: auto;
+  white-space: nowrap;
+  font-size: 1rem;
+}
+.flex-item .btn:hover {
+  background-color: var(--primary-color);
+}
+.flex-item i {
+  font-size: 2rem;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgba(255,255,255, .5);
+  backdrop-filter: blur(8px);
+}
 /* footer section */
 #footer-section {
   background: linear-gradient(rgba(0,0,0, .2), rgba(0,0,0,.8));
   backdrop-filter: blur(8px);
-  /* border-top: 1px solid rgba(255,255,255, .7); */
-  /* box-shadow: 0 0 5px 0 rgba(255,255,255, .4); */
+  border-top: 1px solid rgba(255,255,255, .7);
+  box-shadow: 0 0 5px 0 rgba(255,255,255, .4);
 }
 .footer-container {
   display: grid;
@@ -857,11 +883,18 @@ nav .dropdown-menu li a {
 
 }
 .foot-item span.foot-text {
-  text-decoration: underline;
   color: rgba(255,255,255, .8);
 }
 .footer-list li {
   padding: 10px 0;
+}
+.footer-list a {
+  display: inline;
+  text-decoration: underline;
+  color: rgba(255,255,255, .8);
+}
+.footer-list a:hover {
+  text-decoration: none;
 }
 .footer-list .text-light {
   color: #fff;
@@ -893,4 +926,142 @@ nav .dropdown-menu li a {
 .foot-last-item {
   text-align: center;
   padding: 30px 0;
+}
+/* subscribe / login /sign up */
+#subscribe-form {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.sub-form-header h2, .sub-form-header p {
+  color: #fff;
+}
+#subscribe-form .contact-divider .section-title {
+  font-size: 2rem;
+  padding-top: 0;
+}
+#subscribe-form #contact-form {
+}
+#subscribe-form #contact-form .section-header {
+  padding-bottom: 10px;
+}
+
+#subscribe-form .contact-divider {
+  padding: 10px;
+}
+#subscribe-form .contact-divider > div {
+  /* border: 1px solid green; */
+  flex-basis: 50%;
+  padding: 20px;
+  padding-top: 20px;
+  position: relative;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, .5);
+  backdrop-filter: blur(8px);
+}
+#subscribe-form img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  object-position: bottom;
+}
+#subscribe-form form input {
+  width: 100%;
+  display: block;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 50px;
+  /* outline: 0; */
+  border: 0;
+  /* background-color: rgba(238, 233, 233, 0.2); */
+  /* backdrop-filter: blur(8px); */
+  color: #fff;
+  font-weight: 500;
+}
+
+#subscribe-form select {
+  width: 100%;
+  display: block;
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 50px;
+  /* background-color: rgba(0, 0, 0, .5); */
+  background-color: rgba(238, 233, 233, 0.247);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+#subscribe-form select option {
+  background-color: rgba(0, 0, 0, .5);
+  padding: 20px;
+}
+
+#subscribe-form .contact-reminder{
+  color: rgba(255,255,255, .7);
+  padding-bottom: 10px;
+  margin-top: 0;
+  font-size: .9rem;
+  position: relative;
+}
+.hr {
+  position: relative;
+  display: block;
+  margin: auto;
+  text-align: center;
+  color: #fff;
+  padding: 5px;
+}
+.hr::after, .hr::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 45%;
+  background-color: rgba(255,255,255, .7);
+  z-index: 2;
+  top: 50%;
+}
+.hr::before {
+  right: 0;
+}
+.hr::after {
+  left: 0;
+}
+.google .btn, .facebook .btn {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  margin: auto;
+  padding: 10px;
+  background-color: rgba(238, 233, 233, 0.247);
+  cursor: pointer;
+  text-transform: none;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+.google .btn:hover, .facebook .btn:hover {
+  background-color: rgba(33, 156, 80, .9);
+  /* border: 2px solid #fff; */
+}
+.google i, .facebook i {
+  padding-right: 5px;
+}
+.brand-sign-up > div {
+  padding: 10px 0;
+}
+.submit #register-btn {
+  margin: auto;
+  border: 2px solid transparent;
+  background-color: var(--primary-color);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+}
+.submit #register-btn:hover {
+  border: 2px solid #fff;
+}
+#subscribe-form a {
+  display: inline;
+  padding: 0;
 }
