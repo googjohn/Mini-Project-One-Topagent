@@ -1,0 +1,148 @@
+#condo-main {
+    position: relative;
+  }
+#footer-section.properties-footer {
+    /* position: fixed;
+    bottom: 0; */
+}
+.property-content {
+  position: relative;
+  display: grid;
+  height: 350px;
+  border: 1px solid green;
+  grid-template-columns: repeat(2, 1fr);
+  color: white;
+}
+.property-details {
+  padding: 20px;
+  color: rgba(0,0,0,.8);
+}
+.property-price, .property-content h3 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.property-location h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: rgba(0,0,0,.5);
+}
+.property-specifics-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding-top: 40px;
+}
+.property-specifics i, .property-specifics p {
+  font-size: 2rem;
+}
+.property-specifics-value {
+  font-weight: 400;
+  font-size: 2rem;
+}
+.property-card-details .property-specifics-value {
+  font-weight: 400;
+  font-size: 1rem;
+}
+.property-card-details .property-specifics-container {
+  gap: 10px;
+  padding-top: 0;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.property-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.property-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  translate: all .5s ease-in-out;
+}
+
+.property-list {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+  padding: 0 0 90px 0;
+}
+.property-card-details .property-specifics p, .property-card-details .property-specifics i{
+  font-size: 1rem;
+}
+.property-item {
+  height: 450px;
+  width: 100%;
+  border: 1px solid green;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.property-card {
+  position: relative;
+  height: 450px;
+  width: 100%;
+  
+}
+
+.property-card-image {
+  width: 100%;
+  height: 270px;
+  overflow: hidden;
+}
+.property-card img:hover {
+  transform: scale(1.2);
+  translate: all .5s ease-in-out;
+  cursor: pointer;
+}
+.property-card-details {
+  padding: 10px;
+}
+.property-card-details .property-price {
+  font-size: 1rem;
+}
+.property-card-details h3 {
+  /* margin-bottom: 30px; */
+}
+.property-card-details .btn {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.property-name {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+.property-image::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: rgba(0,0,0,.3);
+}
+.property-card-image::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: rgba(0,0,0,.3);
+}

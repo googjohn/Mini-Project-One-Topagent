@@ -43,13 +43,13 @@ function createCarouselItem(slide) {
   const item = document.createElement('div');
   item.classList.add('carousel-item');
   item.innerHTML = `
-    <img src=${slide.image}>
-    <div class="carousel-description overlay">
-      <p>${slide.location}</p>
-      <h3><span>${slide.name}</span> Model House</h3>
-      <p>${slide.description}</p>
-      <a class="btn" href="#view-more">View more</a> 
-    </div>
+  <img src=${slide.image}>
+  <div class="carousel-description overlay">
+  <p>${slide.location}</p>
+  <h3><span>${slide.name}</span> Model House</h3>
+  <p>${slide.description}</p>
+  <a class="btn" href="#view-more">View more</a> 
+  </div>
   `;
   return item;
 }
@@ -58,16 +58,20 @@ function carouselStart() {
   const carouselDisplay = document.querySelector('.carousel-slide');
   let countCurrent = 0;
   let currentSlide = null;
-
-
+  
+  
   function switchSlide() {
+    const carouselDescription = document.querySelector('.carousel-description');
     const nextSlideIndex = (countCurrent + 1) % slides.length;
     const nextSlide = createCarouselItem(slides[nextSlideIndex]);
 
+    
     nextSlide.style.transform = 'translateX(100%)';
     carouselDisplay.appendChild(nextSlide);
-
+    
     setTimeout(() => {
+      carouselDescription.style.transform = 'translateX(-50%)';
+      carouselDescription.style.transition = 'transform .4s ease';
       currentSlide.style.transform = 'translateX(-50%)';
       currentSlide.style.marginRight = '-100%';
       // currentSlide.style.opacity = 0;

@@ -45,13 +45,14 @@ function type() {
 type();
 
 window.addEventListener('wheel', scrollToNextSection);
-
+let isScrolling = false;
 function scrollToNextSection(event) {
   
   const delta = event.deltaY || event.wheelDelta;
 
   if (delta < 0) {
     // Scrolling up
+    isScrolling = true;
     const previousSection = document.querySelector('.active')?.previousElementSibling;
     const activeNav = document.querySelector('.active')?.previousElementSibling;
     const activeStyle = document.querySelector('.navlink a')
@@ -174,3 +175,4 @@ function scroll () {
   const elements = window.scrollY
   console.log(elements);
 }
+

@@ -186,7 +186,7 @@ section {
   background: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
   /* background: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,.3)); */
   backdrop-filter: blur(8px);
-  padding: 25px;
+  padding: 20px;
   border: none;
   border-radius: 10px;
   /* box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.5); */

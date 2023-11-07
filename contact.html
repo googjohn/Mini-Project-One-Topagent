@@ -94,7 +94,10 @@
             <div class="contact-form">
               <form id="contact-form" action="" method="">
                 <div class="section-header">
-                  <h3 class="section-title">Create your free Account</h3>
+                  <h3 class="section-title"><span class="go-back" role="button">
+                    <!-- <i class="fas fa-arrow-left"></i> -->
+                    Go Back
+                  </span>Create your free Account</h3>
                   <div class=""></div>
                   <p class="section-description">Already have an account? <a href="">Login here.</a></p>
                 </div>
@@ -173,9 +176,13 @@
 
 
 
-  <script src="/index.js"></script>
-  <script src="/customCarousel.js"></script>
-  <script src="/customAccordion.js"></script>
+  <script>
+    const goBack = document.querySelector('.go-back');
+    goBack.addEventListener('click', () => {
+      window.location.href = '/index.html#subscribe-section';
+    })
+  </script>
+  
   <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </body>
   </html>
