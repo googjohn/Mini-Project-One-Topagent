@@ -44,14 +44,13 @@ function type() {
 
 type();
 
-window.addEventListener('wheel', scrollToNextSection);
+// window.addEventListener('wheel', scrollToNextSection);
 let isScrolling = false;
 function scrollToNextSection(event) {
   
   const delta = event.deltaY || event.wheelDelta;
 
   if (delta < 0) {
-    // Scrolling up
     isScrolling = true;
     const previousSection = document.querySelector('.active')?.previousElementSibling;
     const activeNav = document.querySelector('.active')?.previousElementSibling;
@@ -61,7 +60,6 @@ function scrollToNextSection(event) {
       previousSection.classList.add('active');
     }
   } else if (delta > 0) {
-    // Scrolling down
     const activeSection = document.querySelector('.active');
 
     if (activeSection) {
@@ -73,7 +71,6 @@ function scrollToNextSection(event) {
         nextSection.classList.add('active');
       }
     } else {
-      // Scroll to the first section if no active section found
       const firstSection = document.querySelector('section:first-child');
 
       if (firstSection) {
@@ -168,11 +165,11 @@ function scrollOut(){
 //     gallery.style.filter = 'blur(0)'
 //   }
 // });
-const gallery = document.getElementById('gallery-section')
+// const gallery = document.getElementById('gallery-section')
 
-window.addEventListener('wheel', scroll)
-function scroll () {
-  const elements = window.scrollY
-  console.log(elements);
-}
+// window.addEventListener('wheel', scroll)
+// function scroll () {
+//   const elements = window.scrollY
+//   console.log(elements);
+// }
 

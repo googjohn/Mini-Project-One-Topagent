@@ -66,6 +66,46 @@ header {
   width: 100%;
   z-index: 100;
 }
+.mobile-nav {
+  display: none;
+  text-align: right;
+  position: absolute;
+  width: 50%;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: #229b50;
+}
+.mobile-nav .dropbtn {
+  padding-right: 0;
+  display: inline-block;
+  z-index: 1;
+}
+.mobile-nav .dropdown box-icon {
+  color: #ffffff;
+  position: absolute;
+  right: 100%;
+  top: 20%;
+  transform: rotate(0);
+}
+.mobile-nav .dropdown:hover box-icon{
+  color: var(--primary-color);
+  transform: rotate(180deg);
+  transition: transform .3s;
+}
+.mobile-nav .dropdown-menu {
+  right: 0;
+  width: 100%;
+  display: none;
+  padding-right: 20px;
+}
+.mobile-nav:hover .dropdown-menu {
+  display: block;
+  z-index: 2;
+}
+#mobile-nav {
+  display: none;
+}
 nav {
   position: absolute;
   top: 0;
@@ -180,21 +220,26 @@ nav .dropdown-menu li a {
   transition: transform .3s;
 }
 
-
+/* .dropdown li:first-child {
+  display: none;
+} */
+.dropdown .search {
+  display: none;
+}
 .user-search {
   display: flex;
   justify-content: end;
   align-items: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   gap: 20px;
 }
-.user-search form {
+.search form {
   display: flex;
   justify-content: end;
   align-items: center;
   width: auto;
 }
-.user-search form input {
+.search form input {
   font-weight: 600;
   outline: transparent;
   width: 90px;
@@ -205,21 +250,21 @@ nav .dropdown-menu li a {
   transition: .3s ease-in-out;
   border-right: 0;
 }
-.user-search input:hover {
+.search input:hover {
   width: 100%;
   transition: .3s ease-in-out;
 }
-.user-search input:focus {
+.search input:focus {
   outline: transparent;
   border: 2px solid var(--primary-color); 
   border-right: 0;
   width: 100%;
 }
 
-.user-search label{
+.search label{
   cursor: pointer;
 }
-.user-search form i {
+.search form i {
   padding: 10px;
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
@@ -287,7 +332,6 @@ nav .dropdown-menu li a {
   padding-left: 10%;
   width: 100%;
   height: 100vh;
-  font-size: 3rem;
   color: white;
   z-index: 1;
 }
@@ -492,6 +536,7 @@ nav .dropdown-menu li a {
   /* background-color: rgba(0, 0, 0, .5); */
   height: 300px;
   display: flex;
+  gap: 20px;
 }
 .subscribe-details {
   display: flex;
@@ -740,11 +785,10 @@ nav .dropdown-menu li a {
   justify-content: space-between;
   position: relative;
 }
-.contact-form, .sub-form-container {
+#contact-section .contact-form {
   max-width: 600px;
   margin: auto;
   box-shadow: 0 0 4px 0 rgba(255,255,255, .6);
-
 }
 .contact-form input {
   /* position: absolute; */
@@ -780,7 +824,6 @@ nav .dropdown-menu li a {
   width: 100%;
   color: #fff;
   padding: 10px 15px;
-
 } 
 
 
@@ -934,6 +977,8 @@ nav .dropdown-menu li a {
   position: relative;
   width: 100%;
   height: 100%;
+  padding: 30px;
+  background: url(/images/bg-hero.jpg) no-repeat  center center/cover;
 }
 .sub-form-header h2, .sub-form-header p {
   color: #fff;
@@ -944,7 +989,7 @@ nav .dropdown-menu li a {
 #subscribe-form .section-description a:hover {
   text-decoration: none;
 }
-#subscribe-form .contact-divider .section-title {
+#subscribe-form .contact-form .section-title {
   font-size: 2rem;
   padding-top: 0;
   position: relative;
@@ -1020,29 +1065,33 @@ nav .dropdown-menu li a {
   padding-bottom: 10px;
 }
 
-#subscribe-form .contact-divider {
-  padding: 30px;
-}
-#subscribe-form .contact-divider > div {
-  /* border: 1px solid green; */
-  flex-basis: 50%;
-  padding: 20px;
-  padding-top: 20px;
+#subscribe-form .contact-form {
   position: relative;
+  margin: 20px auto;
+  height: auto;
+  max-width: 600px;
+  min-width:400px;
+  box-shadow: 0 0 4px 0 rgba(255,255,255, .6);
   border-radius: 20px;
   background-color: rgba(0, 0, 0, .5);
   backdrop-filter: blur(8px);
 }
-#subscribe-form img {
+
+#subscribe-form #contact-form {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+/* #subscribe-form img {
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover;
   object-position: bottom;
-}
+} */
 #subscribe-form form input {
   width: 100%;
   display: block;

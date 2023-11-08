@@ -1,9 +1,8 @@
-#condo-main, #commercial-space-main, #hosueandlot-main, #land-main {
+#condo-main, #commercial-space-main, #houseandlot-main, #land-main {
     position: relative;
   }
-#footer-section.properties-footer {
-    /* position: fixed;
-    bottom: 0; */
+#condo-main .wrapper, #commercial-space-main .wrapper, #houseandlot-main .wrapper, #land-main .wrapper {
+  background: linear-gradient(rgba(0,0,0, .2), rgba(0,0,0, .5))
 }
 .property-content {
   position: relative;
@@ -11,7 +10,8 @@
   width: 100%;
   height: 500px;
   /* border: 1px solid green; */
-  box-shadow: 0 0 4px 0 rgba(0,0,0, .7);
+  box-shadow: 0 0 4px 0 rgba(255,255,255, .7);
+  border-radius: 10px;
   overflow: hidden;
   grid-template-columns: repeat(2, 1fr);
   color: white;
@@ -29,12 +29,28 @@
   font-weight: 400;
   color: rgba(0,0,0,.5);
 }
-.property-specifics-container {
+.property-content .property-specifics-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
   flex-wrap: wrap;
   padding-top: 40px;
+  flex: 1 1 1;
+}
+.property-details .property-description {
+  padding-top: 40px;
+  font-size: 1.5rem;
+}
+.property-content .property-specifics-container > div {
+ flex: 1 1 35%;
+}
+.property-card-details .property-specifics-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .property-specifics i, .property-specifics p {
   font-size: 2rem;
@@ -46,12 +62,6 @@
 .property-card-details .property-specifics-value {
   font-weight: 400;
   font-size: 1rem;
-}
-.property-card-details .property-specifics-container {
-  gap: 10px;
-  padding-top: 0;
-  margin-bottom: 10px;
-  margin-top: 10px;
 }
 .property-image {
   width: 100%;
@@ -67,9 +77,9 @@
 
 .property-card img {
   width: 100%;
-  height: 100%;
+  max-height: 450px;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
   translate: all .5s ease-in-out;
 }
 
@@ -85,8 +95,8 @@
   font-size: 1rem;
 }
 .property-item {
-  height: 520px;
   width: 100%;
+  height: auto;
   /* border: 1px solid green; */
   box-shadow: 0 0 4px 0 rgba(0,0,0, .2);
   border-radius: 8px;
@@ -94,17 +104,16 @@
 }
 .property-item:hover {
   box-shadow: 0 0 4px 0 rgba(0,0,0, .7);
+  /* box-shadow: 0 0 4px 0 rgba(255,255,255, .7); */
 }
 .property-card {
   position: relative;
-  height: 100%;
   width: 100%;
-  
+  height: auto;
 }
-
 .property-card-image {
   width: 100%;
-  height: 300px;
+  height: 100%;
   overflow: hidden;
 }
 .property-card img, .property-image img {
@@ -128,6 +137,10 @@
 .property-card-details .btn {
   padding: 10px 15px;
   cursor: pointer;
+  font-size: 1rem;
+}
+.property-card-details .btn:hover {
+  border: 2px solid transparent;
 }
 
 .property-name {
@@ -141,8 +154,8 @@
 
 
 
-
-/* .property-image::before {
+/* 
+.property-image::before {
   content: '';
   position: absolute;
   width: 50%;

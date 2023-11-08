@@ -62,7 +62,7 @@
         <div class="">
           <a id="navlogo" href="/"><img src="/images/logo-no-bg.png" alt="Topagent Logo" title="Topagent Logo"></a>
         </div>
-        <div class="">
+        <div class="navigation">
         <ul class="navlink">
           <li class="nav-link-item"><a href="/">Home</a></li>
           <li class="nav-link-item dropdown">
@@ -91,13 +91,21 @@
         </ul>
         </div>
         <div class="user-search">
-          <form action="" role="search">
-            <input type="search" id="search-input" name="search" placeholder="Search...">
-            <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i></label> 
-          </form>
+          <div class="search">
+            <form action="" role="search">
+              <input type="search" id="search-input" name="search" placeholder="Search...">
+              <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i></label> 
+            </form>
+          </div>
           <div class="user dropdown">
             <a href="" class="user-link dropbtn" href="#" role="button"><i class="fa-solid fa-user-large"></i></a>
             <ul id="user-menu" class="dropdown-menu">
+              <li class="search">
+                <form action="" role="search">
+                  <input type="search" id="search-input-2" name="search" placeholder="Search...">
+                  <label for="search-input-2"><i class="fa-solid fa-magnifying-glass"></i></label> 
+                </form>
+              </li>
               <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-user-large"></i></span> Profile</a></li>
               <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-gear"></i></span> Settings and Privacy</a></li>
               <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-circle-question"></i></span> Help and support</a></li>
@@ -106,7 +114,62 @@
           </div>
         </div>
       </div>
+      <button id="mobile-nav">
+        
+      </button>
     </nav>
+    <div class="mobile-nav">
+      <div class="navigation">
+        <ul class="navlink">
+          <li class="nav-link-item"><a href="/">Home</a></li>
+          <li class="nav-link-item dropdown">
+            <a href="#services-section" class="dropbtn" role="button" aria-label="Contains a list of serives provided">Services <box-icon class="spinning-element" color='white'  name='chevron-down'></box-icon></a>
+            <ul id="services-list" class="dropdown-menu">
+              <li><a href="#services-section">Land title assistance</a></li>
+              <li><a href="#services-section">Pagibig assistance</a></li>
+              <li><a href="#services-section">Bank loan assistance</a></li>
+              <li><a href="#services-section">Property site viewing</a></li>
+              <li><a href="#services-section">Legal Assistance</a></li>
+              <li><a href="#services-section">Virtual tour</a></li>
+            </ul>
+          </li>
+          <li class="nav-link-item dropdown">
+            <a href="/" role="button" class="dropbtn" aria-label="Contains list of property categories">Properties <box-icon color='white' name='chevron-down'></box-icon></a>
+            <ul id="properties-list" class="dropdown-menu">
+              <li><a target="_blank" href="condominium.html">Condominium</a></li>
+              <li><a target="_blank" href="houseandlot.html">House and Lot</a></li>
+              <li><a target="_blank" href="commercialspace.html">Commercial Space</a></li>
+              <li><a target="_blank" href="land.html">Land</a></li>
+            </ul>
+            
+          </li>
+          <li class="nav-link-item"><a href="#about-section">About</a></li>
+          <li class="nav-link-item"><a href="#contact-section">Contact</a></li>
+        </ul>
+        </div>
+        <div class="user-search">
+          <div class="search">
+            <form action="" role="search">
+              <input type="search" id="search-input" name="search" placeholder="Search...">
+              <label for="search-input"><i class="fa-solid fa-magnifying-glass"></i></label> 
+            </form>
+          </div>
+          <div class="user dropdown">
+            <a href="" class="user-link dropbtn" href="#" role="button"><i class="fa-solid fa-user-large"></i></a>
+            <ul id="user-menu" class="dropdown-menu">
+              <li class="search">
+                <form action="" role="search">
+                  <input type="search" id="search-input-2" name="search" placeholder="Search...">
+                  <label for="search-input-2"><i class="fa-solid fa-magnifying-glass"></i></label> 
+                </form>
+              </li>
+              <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-user-large"></i></span> Profile</a></li>
+              <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-gear"></i></span> Settings and Privacy</a></li>
+              <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-circle-question"></i></span> Help and support</a></li>
+              <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-arrow-right-from-bracket"></i></span> Logout</a></li>
+            </ul>
+          </div>
+    </div>
   </header>
   <main>
   <section id="gallery-section">
@@ -218,7 +281,7 @@
             <a class="btn" role="button" href="contact.html">Subscribe Now</a>
           </div>
         </div>
-        <div class="subscribe-footerr">
+        <div class="subscribe-footer">
           <div class="wrapper"></div>
         </div>
       </div>
