@@ -1070,7 +1070,6 @@ nav .dropdown-menu li a {
   margin: 20px auto;
   height: auto;
   max-width: 600px;
-  min-width:400px;
   box-shadow: 0 0 4px 0 rgba(255,255,255, .6);
   border-radius: 20px;
   background-color: rgba(0, 0, 0, .5);

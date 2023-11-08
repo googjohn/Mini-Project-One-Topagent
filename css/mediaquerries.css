@@ -404,6 +404,12 @@
     align-items: center;
     text-align: center;
   }
+  #subscribe-form .contact-form {
+    margin: 20px auto;
+  }
   
+  #subscribe-form {
+    padding: 20px 0;
+  }
   
 }
