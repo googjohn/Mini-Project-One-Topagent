@@ -60,6 +60,12 @@
             <li class="nav-link-item dropdown">
               <a href="#" role="button" class="dropbtn" aria-label="Contains list of property categories">Properties  <box-icon color='white'  name='chevron-down'></box-icon></a>
               <ul id="properties-list" class="dropdown-menu">
+                <li class="search">
+                  <form action="" role="search">
+                    <input type="search" id="search-input-2" name="search" placeholder="Search...">
+                    <label for="search-input-2"><i class="fa-solid fa-magnifying-glass"></i></label> 
+                  </form>
+                </li>
                 <li><a target="_blank" href="condominium.html">Condominium</a></li>
               <li><a target="_blank" href="houseandlot.html">House and Lot</a></li>
               <li><a target="_blank" href="commercialspace.html">Commercial Space</a></li>
@@ -81,6 +87,12 @@
           <div class="user dropdown">
             <a class="user-link dropbtn" href="#" role="button"><i class="fa-solid fa-user-large"></i></a>
             <ul id="user-menu" class="dropdown-menu">
+              <li class="search">
+                <form action="" role="search">
+                  <input type="search" id="search-input-2" name="search" placeholder="Search...">
+                  <label for="search-input-2"><i class="fa-solid fa-magnifying-glass"></i></label> 
+                </form>
+              </li>
               <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-user-large"></i></span> Profile</a></li>
               <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-gear"></i></span> Settings and Privacy</a></li>
               <li><a href="#"><span class="user-menu-icon"><i class="user-menu-icon-i fa-solid fa-circle-question"></i></span> Help and support</a></li>
@@ -88,6 +100,11 @@
             </ul>
           </div>
         </div>
+        <button id="mobile-nav-btn" class="nav-toggle">
+          <span class="nav-btn"></span>
+          <span class="nav-btn"></span>
+          <span class="nav-btn"></span>
+        </button>
       </div>
     </nav>
   </header>
@@ -518,5 +535,9 @@
       </div>
     </div>
   </footer>
+  <script src="/mobile-menu.js"></script>
+
+  
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </body>
 </html>
