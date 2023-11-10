@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    margin-top: 20px;
+    padding: 30px;
     gap: 20px;
   }
 
@@ -198,22 +198,82 @@
   #navlogo {
     padding: 0
   }
+ .user-search {
+  width: max-content;
+  flex-shrink: 3;
+ }
 
 }
 @media screen and (max-width: 1000px) {
-  .user-search {
+  /* .user-search {
     display: none;
-  }
-  .mobile-nav {
-    /* display: block; */
+  } */
+  /* .mobile-nav {
+    z-index: -1;
+    width: 100%;
+    inset: 0 0 0 30%;
+    padding: min(10vh, 10em);
+    display: none;
+    background-color: rgba(255, 255, 255, .2);
+    backdrop-filter: blur(4px);
   }
   .navlink {
     gap: 5px;
+  } */
+}
+/* @media screen and (max-width: 830px) {
+  .dropdown-menu .search {
+    display: none;
+  }
+} */
+/* @media only screen and (min-width: 830px) and (max-width: 900px) {
+  .user-search {
+    display: none;
+  }
+} */
+@media screen and (min-width: 830px) and (max-width: 900px) {
+  .user-search {
+    display: none;
   }
 }
 @media screen and (max-width: 830px) {
+  .navbar {
+    /* flex-direction: column; */
+    box-shadow: 0 0 0 0 transparent;
+    transition: box-shadow .3s ease-out;
+  }
   .navigation {
     display: none;
+  }
+  .nav-toggle {
+    display: block;
+    transition: all .3s ease-in-out
+    /* position: fixed; */
+      /* top: 0;
+      right: 0; */
+    /* margin-right: 10%;
+    margin-top: 14px; */
+  }
+  .user-search {
+    position: fixed;
+    top: 0;
+    right: 130px;
+    top: 14px;
+  }
+}
+@media screen and (max-width: 780px) {
+  .user-search {
+    right: 125px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .user-search {
+    right: 120px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .user-search {
+    right: 115px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -358,6 +418,79 @@
   .carousel-description h3 {
     font-size: 3rem;
   }
+  .go-back-text {
+    display: none;
+  }
+  .go-back-arrow {
+    display: inline-block;
+  }
+  .navigation {
+   position: fixed;
+   flex-direction: column;
+   inset: 0 0 0 30%;
+   padding: min(20vh, 10em) 2em;
+   text-align: center;
+   transform: translateX(0);
+   transition: all .5s ease;
+   background-color: rgba(0,0,0,.5);
+   backdrop-filter: blur(8px);
+  }
+  .navigation .dropdown-menu {
+    /* align-items: center; */
+    /* position: relative; */
+    /* display: none; */
+    z-index: 999;
+  }
+  .navigation .dropdown .dropdown-menu {
+    display: block;
+    transition: all .3s ease;
+  }
+  .navigation ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  /* .navigation ul li a:not(.dropdown-menu a) {
+    display: block;
+    width: 100%;
+  } */
+  /* .user-search {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    margin-right: max(6em, 16.5%);
+    margin-top: 14px;
+    z-index: 200;
+  }
+  .user .search {
+    display: none;
+  }
+  .user-search .search {
+    display: block;
+  } */
+  /* .user .search {
+    display: none;
+  } */
+  .close-button .nav-btn:nth-of-type(2) {
+    z-index: -1;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+    }
+    .close-button .nav-btn:first-of-type {
+      transform: rotate(135deg) translate(3px, -9px);
+    z-index: -1;
+    transition: all 300ms ease-in-out;
+    }
+    .close-button .nav-btn:nth-of-type(3) {
+      transform: rotate(-135deg) translate(3px, 9px);
+    z-index: -1;
+    transition: all 300ms ease-in-out;
+    }
+  
+  .navigation.show {
+    display: flex;
+    flex-direction: column;
+  }
  
 }
 @media screen and (max-width: 640px) {
@@ -380,8 +513,8 @@
     flex-direction: column;
     padding: 20px 0;
   }
-  .flex-container > div {
-    padding: 0;
+  .flex-container .flex-item {
+    padding: 20px 0;
   }
   .container {
     max-width: 90%;
@@ -411,5 +544,27 @@
   #subscribe-form {
     padding: 20px 0;
   }
+  .btn {
+    padding: 10px 20px;
+  }
+  .nav-toggle {
+    right: 5%;
+  }
   
+  div.search:not(li.search) {
+    display: block;
+  }
+  .user-search {
+    right: 80px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .user-search {
+    right: 78px;
+  }
+}
+@media screen and (max-width: 470px) {
+  .user-search {
+    right: 73px;
+  }
 }

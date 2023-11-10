@@ -131,8 +131,8 @@
 .property-card-details .property-price {
   font-size: 1rem;
 }
-.property-card-details h3 {
-  /* margin-bottom: 30px; */
+.property-card-details a {
+  width: max-content;  
 }
 .property-card-details .btn {
   padding: 10px 15px;

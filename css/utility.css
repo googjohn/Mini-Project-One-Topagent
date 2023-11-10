@@ -113,8 +113,8 @@ a::after {
   transform: translateX(50%);
 }
 
-a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-section a, .faq-accordion a, .user > a, #subscribe-section a, .contact-reminder a, .flex-container a, .footer-list a, #subscribe-form a, .mobile-nav a):hover::before,
-a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-section a, .faq-accordion a, .user > a, #subscribe-section a, .contact-reminder a, .flex-container a, .footer-list a, #subscribe-form a, .mobile-nav a):hover::after {
+a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-section a, .faq-accordion a, .user > a, #subscribe-section a, .contact-reminder a, .flex-container a, .footer-list a, #subscribe-form a, .property-card-details a, .mobile-nav a):hover::before,
+a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-section a, .faq-accordion a, .user > a, #subscribe-section a, .contact-reminder a, .flex-container a, .footer-list a, #subscribe-form a, .property-card-details a, .mobile-nav a):hover::after {
   width: 100%;
 }
 

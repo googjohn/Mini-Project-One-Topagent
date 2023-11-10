@@ -48,7 +48,7 @@ function createCarouselItem(slide) {
   <p>${slide.location}</p>
   <h3><span>${slide.name}</span> Model House</h3>
   <p>${slide.description}</p>
-  <a class="btn" href="#view-more">View more</a> 
+  <a class="btn" href="houseandlot.html">View more</a> 
   </div>
   `;
   return item;
