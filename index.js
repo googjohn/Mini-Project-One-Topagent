@@ -44,7 +44,7 @@ function type() {
 
 type();
 
-// window.addEventListener('wheel', scrollToNextSection);
+// not working on chrome and busted on firefox still needs fixing
 let isScrolling = false;
 function scrollToNextSection(event) {
   

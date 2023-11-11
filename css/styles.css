@@ -89,44 +89,6 @@ header {
   z-index: 999;
 }
 
-/* .mobile-nav-btn {
-  content: '';
-  position: absolute;
-  height: 4px;
-  width: 30px;
-  background-color: red;
-  top: 40px;
-  right: min(10vw, 10rem);
-} */
-/* .mobile-nav-btn::after, .mobile-nav-btn::before {
-  position: absolute;
-  content: '';
-  height: 4px;
-  width: 100%;
-  background-color: #fff;
-}
-.mobile-nav-btn::after {
-  top: -10px;
-  right: 0;
-}
-.mobile-nav-btn::before {
-  bottom: -10px;
-  right: 0;
-}
-
-.mobile-nav-btn::after {
-  transform:rotate(45deg) translate(10px, 4px);
-  background: #fff;
-}
-.mobile-nav-btn::before {
-  transform: rotate(-45deg) translate(10px,-5px);
-  background: #fff;
-}
-.mobile-nav-btn {
-  background-color: #fff;
-} */
-
-
 nav {
   position: absolute;
   top: 0;
