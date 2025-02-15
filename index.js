@@ -33,7 +33,7 @@ function type() {
     isDeleting = false;
     index++;
     if (index === textArray.length) {
-    index = 0;
+      index = 0;
     }
   }
 
@@ -45,9 +45,47 @@ function type() {
 type();
 
 // not working on chrome and busted on firefox still needs fixing
+let btn = document.getElementById('back-to-top');
+
 let isScrolling = false;
-function scrollToNextSection(event) {
-  
+
+let sections = document.querySelectorAll('.scroll-to-section');
+
+const scrollToSection = (entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      let section = entry.target;
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  })
+}
+
+const options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: .1
+}
+
+let sectionObserver = new IntersectionObserver(scrollToSection, options);
+
+// const checkBtnBacktoTop = (entry) => {
+//   console.log(entry.target)
+//   if (entry.target.style.display === 'none') {
+//     sections.forEach(section => sectionObserver.observe(section))
+//   }
+// }
+
+
+// let btnObserver = new MutationObserver(checkBtnBacktoTop);
+
+// btnObserver.observe(btn, {
+//   childList: true,
+//   subtree: true,
+//   characterDataOldValue: true,
+// })
+
+/* function scrollToNextSection(event) {
+
   const delta = event.deltaY || event.wheelDelta;
 
   if (delta < 0) {
@@ -79,26 +117,26 @@ function scrollToNextSection(event) {
       }
     }
   }
-}
+} */
 
-let btn = document.getElementById('back-to-top');
-
+/* button for back to top */
 window.addEventListener('scroll', scrollToTop);
-function scrollToTop () {
-  if(document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+function scrollToTop() {
+  if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
     btn.style.display = "block";
   } else {
-    btn.style.display = "none"
+    btn.style.display = "none";
+    sections.forEach(section => sectionObserver.observe(section))
   }
 }
 
 btn.addEventListener('click', backToTop)
-function backToTop () {
+function backToTop() {
   document.body.scrollTop = 0
   document.documentElement.scrollTop = 0
   const firstSection = document.querySelector('section:first-child')
   if (firstSection) {
-    firstSection.scrollIntoView({ behavior: 'smooth' });
+    firstSection.scrollIntoView({ behavior: 'instant' });
     firstSection.classList.add('active');
   }
 }
@@ -134,7 +172,7 @@ function backToTop () {
 
 // make element blur after some scrolling or near out of view
 /* const gallerySectionBlur = document.getElementById('gallery-section');
-console.log(gallerySectionBlur) 
+console.log(gallerySectionBlur)
 const initialScrollPosition = window.innerHeight
 window.addEventListener('scroll', scrollOut);
 function scrollOut(){
