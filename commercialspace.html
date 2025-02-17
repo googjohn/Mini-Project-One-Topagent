@@ -46,7 +46,7 @@
           <ul class="navlink">
             <li class="nav-link-item"><a href="index.html">Home</a></li>
             <li class="nav-link-item dropdown">
-              <a href="index.html#services-section" class="dropbtn" role="button" aria-label="Contains a list of serives provided">Services</a>
+              <a data-link="#services-section" href="index.html#services-section" class="navigation-buttons dropbtn" role="button" aria-label="Contains a list of serives provided">Services</a>
               <ul id="services-list" class="dropdown-menu">
                 <li><a href="index.html#services-section">Land title assistance</a></li>
                 <li><a href="index.html#services-section">Pagibig assistance</a></li>
@@ -60,14 +60,13 @@
               <a href="#" role="button" class="dropbtn" aria-label="Contains list of property categories">Properties</a>
               <ul id="properties-list" class="dropdown-menu">
                 <li><a target="_blank" href="condominium.html">Condominium</a></li>
-              <li><a target="_blank" href="houseandlot.html">House and Lot</a></li>
-              <li><a target="_blank" href="commercialspace.html">Commercial Space</a></li>
-              <li><a target="_blank" href="land.html">Land</a></li>
-            </ul>
-            
-          </li>
-          <li class="nav-link-item"><a href="index.html#about-section">About</a></li>
-          <li class="nav-link-item"><a href="index.html#contact-section">Contact</a></li>
+                <li><a target="_blank" href="houseandlot.html">House and Lot</a></li>
+                <li><a target="_blank" href="commercialspace.html">Commercial Space</a></li>
+                <li><a target="_blank" href="land.html">Land</a></li>
+              </ul>
+            </li>
+            <li class="nav-link-item"><a data-link="#about-section" class="navigation-buttons" href="index.html#about-section">About</a></li>
+            <li class="nav-link-item"><a data-link="#contact-section" class="navigation-buttons" href="index.html#contact-section">Contact</a></li>
         </ul>
       </div>
         <div class="user-search">
@@ -531,6 +530,7 @@
       </div>
     </div>
   </footer>
+  <script src="navigationButtonsObserver.js"></script>
   <script src="/mobile-menu.js"></script>
   <script src="/backToTop.js"></script>
   <script src="/lazyLoad.js"></script>

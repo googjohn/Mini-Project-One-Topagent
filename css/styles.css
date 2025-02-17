@@ -452,7 +452,7 @@ nav .dropdown-menu li a {
   content: "";
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
   z-index: -1;
@@ -505,6 +505,7 @@ nav .dropdown-menu li a {
 /* Subscribe section */
 #subscribe-section {
   position: relative;
+  /* height: 100vh; */
   background: 
     /* linear-gradient(rgba(255,255,255, 0.2), rgba(255,255,255, 0.2)), */
     url(/images/bg-subscribe.jpg) fixed center center/cover;

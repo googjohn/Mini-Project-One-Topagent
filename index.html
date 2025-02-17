@@ -51,8 +51,8 @@
         </p>
       </div>
       <div class="hero-links">
-        <a id="gallery-link" class="btn primary-btn" href="#carousel">View Gallery</a>
-        <a id="services-link" class="btn secondary-btn" href="#services-section">Our Services</a>
+        <a data-link="#gallery-section" id="gallery-link" class="navigation-buttons btn primary-btn" href="#carousel">View Gallery</a>
+        <a data-link="#services-section" id="services-link" class="navigation-buttons btn secondary-btn" href="#services-section">Our Services</a>
       </div>
     </div>
   </section>
@@ -66,7 +66,7 @@
           <ul class="navlink">
             <li class="nav-link-item"><a href="/">Home</a></li>
             <li class="nav-link-item dropdown">
-              <a href="#services-section" class="dropbtn" role="button" aria-label="Contains a list of serives provided">Services <box-icon color='white'  name='chevron-down'></box-icon></a>
+              <a data-link="#services-section" href="#services-section" class="navigation-buttons dropbtn" role="button" aria-label="Contains a list of serives provided">Services <box-icon color='white'  name='chevron-down'></box-icon></a>
               <ul id="services-list" class="dropdown-menu">
                 <li><a href="#services-section">Land title assistance</a></li>
                 <li><a href="#services-section">Pagibig assistance</a></li>
@@ -85,8 +85,8 @@
                 <li><a target="_blank" href="land.html">Land</a></li>
               </ul>
             </li>
-            <li class="nav-link-item"><a href="#about-section">About</a></li>
-            <li class="nav-link-item"><a href="#contact-section">Contact</a></li>
+            <li class="nav-link-item"><a data-link="#about-section" class="navigation-buttons" href="#about-section">About</a></li>
+            <li class="nav-link-item"><a data-link="#contact-section" class="navigation-buttons" href="#contact-section">Contact</a></li>
           </ul>
         </div>
         <div class="user-search">
@@ -544,9 +544,7 @@
     </div>
   </footer>
   
-  
-  
- 
+  <!-- <script src="navigationButtonsObserver.js"></script> -->
   <script src="/mobile-menu.js"></script>
   <script src="/customCarousel.js"></script>
   <script src="/customAccordion.js"></script>

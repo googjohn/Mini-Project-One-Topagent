@@ -140,7 +140,7 @@ a:not(#navlogo, .hero-links a, #slider a, .carousel-description a, #services-sec
   background-color: rgba(0, 0, 0, 0.5);
   /* backdrop-filter: blur(4px); */
 }
-section {
+section:not(section#contact-section) {
   height: 100vh;
   overflow: hidden;
 }

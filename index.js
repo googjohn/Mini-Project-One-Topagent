@@ -44,29 +44,7 @@ function type() {
 
 type();
 
-// not working on chrome and busted on firefox still needs fixing
-let btn = document.getElementById('back-to-top');
-
 let isScrolling = false;
-
-let sections = document.querySelectorAll('.scroll-to-section');
-
-const scrollToSection = (entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      let section = entry.target;
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  })
-}
-
-const options = {
-  root: null,
-  rootMargin: '0px',
-  threshold: .1
-}
-
-let sectionObserver = new IntersectionObserver(scrollToSection, options);
 
 // const checkBtnBacktoTop = (entry) => {
 //   console.log(entry.target)
@@ -119,28 +97,215 @@ let sectionObserver = new IntersectionObserver(scrollToSection, options);
   }
 } */
 
+/* intersection observer for scrolling */
+let sections = document.querySelectorAll('.scroll-to-section');
+
+const options = {
+  root: null,
+  rootMargin: '0px',
+  threshold: .1
+}
+
+function scrollToSection(entries) {
+  entries.forEach(entry => {
+    let section = entry.target;
+
+    if (entry.isIntersecting) {
+      window.scrollTo({ behavior: 'smooth', top: section.offsetTop, left: 0 });
+      section.setAttribute('data-active', 'active');
+      let currentOrigin = window.location.origin;
+      let currentPath = window.location.pathname;
+      let sectionId = section.getAttribute('id');
+      window.location.href = `${currentOrigin}${currentPath}#${sectionId}`
+    } else {
+      section.setAttribute('data-active', 'null');
+    }
+  })
+}
+
+let sectionObserver = new IntersectionObserver(scrollToSection, options);
+
+sections.forEach(section => sectionObserver.observe(section))
+
 /* button for back to top */
+let btnToTop = document.getElementById('back-to-top');
+
 window.addEventListener('scroll', scrollToTop);
 function scrollToTop() {
   if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-    btn.style.display = "block";
+    btnToTop.style.display = "block";
+    btnToTop.removeAttribute('hidden')
   } else {
-    btn.style.display = "none";
-    sections.forEach(section => sectionObserver.observe(section))
+    btnToTop.style.display = "none";
+    btnToTop.setAttribute('hidden', 'true')
   }
 }
 
-btn.addEventListener('click', backToTop)
+btnToTop.addEventListener('click', backToTop)
 function backToTop() {
-  document.body.scrollTop = 0
-  document.documentElement.scrollTop = 0
-  const firstSection = document.querySelector('section:first-child')
+  sectionObserver.disconnect();
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+
+  const firstSection = document.querySelector('section:first-child');
+
   if (firstSection) {
-    firstSection.scrollIntoView({ behavior: 'instant' });
+    firstSection.scrollIntoView({ behavior: 'smooth' });
     firstSection.classList.add('active');
   }
+  setTimeout(() => {
+    sections.forEach(section => sectionObserver.observe(section))
+  }, 800)
+
 }
 
+const navigationButtons = document.querySelectorAll('.navigation-buttons')
+
+navigationButtons.forEach(button => {
+  button.addEventListener('click', navigationButtonsObserver)
+})
+
+function navigationButtonsObserver(event) {
+  sectionObserver.disconnect();
+
+  let sectionId = event.target.dataset.link;
+
+  let section = document.querySelector(sectionId)
+  window.scrollTo({ behavior: 'smooth', top: section.offsetTop, left: 0 })
+
+  setTimeout(() => {
+    sections.forEach(section => sectionObserver.observe(section))
+  }, 1000)
+}
+
+window.addEventListener('load', () => {
+  let hash = window.location.hash
+  let activeSection = document.querySelector(hash)
+
+  setTimeout(() => {
+    let section = document.querySelector('[data-active="active"]')
+    if (section.id !== hash.slice(1)) {
+      sectionObserver.disconnect()
+      window.scrollTo({
+        behavior: 'smooth',
+        top: activeSection.offsetTop,
+        left: 0,
+      })
+    } else {
+      window.scrollTo({
+        behavior: "smooth",
+        top: section.offsetTop,
+        left: 0,
+      })
+    }
+  }, 100)
+
+  setTimeout(() => {
+    sections.forEach(section => sectionObserver.observe(section))
+  }, 800)
+})
+
+/* mutation observer */
+
+// window.addEventListener('load', () => {
+//   const dataChange = (entries) => {
+//     entries.forEach(entry => {
+//       let hash = window.location.hash
+//       let hashedSection = document.querySelector(hash)
+//       let hashedAttribute = hashedSection.dataset.active
+
+//       let activeSection = entry.target.dataset.active;
+//       console.log(activeSection)
+//       console.log(hashedAttribute)
+//       if (hashedAttribute !== activeSection) {
+//         sectionObserver.disconnect()
+//         window.scrollTo({
+//           behavior: "smooth",
+//           top: hashedSection.offsetTop,
+//           left: 0,
+//         })
+//         setTimeout(() => {
+//           sections.forEach(section => sectionObserver.observe(section))
+//         }, 1000)
+//       }
+//       console.log(hash)
+//       console.log(entry.target)
+//     })
+//   }
+//   const mutationObserver = new MutationObserver(dataChange)
+//   sections.forEach(section => mutationObserver.observe(section, {
+//     attributes: true,
+//   }))
+// })
+
+/* window.addEventListener('load', () => {
+  // sectionObserver.disconnect()
+  console.log(sectionObserver)
+  let hash = window.location.hash
+  console.log("loaded")
+  console.log(event.type)
+  console.log(hash)
+  if (hash) {
+    let section = document.querySelector(hash);
+    console.log(section)
+    console.log(section.offsetTop)
+    section.scrollIntoView({
+      behavior: 'smooth',
+      // top: section.offsetTop,
+      // left: 0,
+    })
+    // sections.forEach(section => sectionObserver.observe(section))
+    console.log(sections)
+    console.log(sectionObserver)
+  }
+}) */
+// window.onload = () => {
+//   sectionObserver.disconnect()
+//   let hash = window.location.hash
+//   console.log(hash)
+//   if (hash) {
+//     let section = document.querySelector(hash);
+//     console.log(section)
+//     console.log(section.offsetTop)
+//     if (section) {
+//       window.scrollTo({
+//         behavior: 'smooth',
+//         top: section.offsetTop,
+//         left: 0,
+//       })
+//     }
+//     sections.forEach(section => sectionObserver.observe(section))
+//   }
+// }
+// const pageAccessedByReload = (window.performance.navigation && window.performance.navigation.type === 1) || window.performance.getEntriesByType('navigation').map((nav) => nav.type).includes('reload');
+
+// if (pageAccessedByReload) {
+//   console.log("This page was refreshed");
+// } else {
+//   console.log("This page was loaded normally");
+//   sectionObserver.disconnect();
+//   const navigationButtons = document.querySelectorAll('.navigation-buttons')
+
+//   navigationButtons.forEach(button => {
+//     button.addEventListener('click', navigationButtonsObserver)
+//   })
+
+//   function navigationButtonsObserver(event) {
+//     console.log(event.target)
+
+//     let sectionId = event.target.dataset.link;
+//     console.log(sectionId)
+
+//     let section = document.querySelector(sectionId)
+//     console.log(section)
+
+//     window.scrollTo({ behavior: 'smooth', top: section.offsetTop, left: 0 })
+
+//     setTimeout(() => {
+//       sections.forEach(section => sectionObserver.observe(section))
+//     }, 1000)
+//   }
+// }
 // const navBlur = document.getElementById('navbar');
 
 // console.log(navBlur);
