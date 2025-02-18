@@ -62,40 +62,6 @@ let isScrolling = false;
 //   characterDataOldValue: true,
 // })
 
-/* function scrollToNextSection(event) {
-
-  const delta = event.deltaY || event.wheelDelta;
-
-  if (delta < 0) {
-    isScrolling = true;
-    const previousSection = document.querySelector('.active')?.previousElementSibling;
-    const activeNav = document.querySelector('.active')?.previousElementSibling;
-    const activeStyle = document.querySelector('.navlink a')
-    if (previousSection) {
-      previousSection.scrollIntoView({ behavior: 'smooth' });
-      previousSection.classList.add('active');
-    }
-  } else if (delta > 0) {
-    const activeSection = document.querySelector('.active');
-
-    if (activeSection) {
-      const nextSection = activeSection.nextElementSibling;
-
-      if (nextSection) {
-        nextSection.scrollIntoView({ behavior: 'smooth' });
-        activeSection.classList.remove('active');
-        nextSection.classList.add('active');
-      }
-    } else {
-      const firstSection = document.querySelector('section:first-child');
-
-      if (firstSection) {
-        firstSection.scrollIntoView({ behavior: 'smooth' });
-        firstSection.classList.add('active');
-      }
-    }
-  }
-} */
 
 /* intersection observer for scrolling */
 let sections = document.querySelectorAll('.scroll-to-section');
@@ -131,6 +97,7 @@ sections.forEach(section => sectionObserver.observe(section))
 let btnToTop = document.getElementById('back-to-top');
 
 window.addEventListener('scroll', scrollToTop);
+
 function scrollToTop() {
   if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
     btnToTop.style.display = "block";
@@ -142,6 +109,7 @@ function scrollToTop() {
 }
 
 btnToTop.addEventListener('click', backToTop)
+
 function backToTop() {
   sectionObserver.disconnect();
   document.body.scrollTop = 0;
@@ -191,6 +159,9 @@ window.addEventListener('load', () => {
         top: activeSection.offsetTop,
         left: 0,
       })
+      setTimeout(() => {
+        sections.forEach(section => sectionObserver.observe(section))
+      }, 800)
     } else {
       window.scrollTo({
         behavior: "smooth",
@@ -198,11 +169,7 @@ window.addEventListener('load', () => {
         left: 0,
       })
     }
-  }, 100)
-
-  setTimeout(() => {
-    sections.forEach(section => sectionObserver.observe(section))
-  }, 800)
+  }, 200)
 })
 
 /* mutation observer */
