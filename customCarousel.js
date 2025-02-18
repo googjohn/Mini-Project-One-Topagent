@@ -3,30 +3,30 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 
 // carousel slide images
-const slideOne = document.createElement('img');
+/* const slideOne = document.createElement('img');
 slideOne.src = '/images/gallery-slider/slide-1.jpg';
 const slideTwo = document.createElement('img');
 slideTwo.src = '/images/gallery-slider/slide-2.jpg';
 const slideThree = document.createElement('img');
-slideThree.src = '/images/gallery-slider/slide-3.jpg';
+slideThree.src = '/images/gallery-slider/slide-3.jpg'; */
 
-// object slides
+// object array of slides
 const slides = [
 {
   'name': 'Gretta',
-  'image': slideOne.src,
+  'imageSrc': '/images/gallery-slider/slide-1.jpg',
   'location': 'Tagaytay City',
   'description': 'A glamorous looking penthouse.'
 },
 {
   'name': 'Freyya',
-  'image': slideTwo.src,
+  'imageSrc': '/images/gallery-slider/slide-2.jpg',
   'location': 'Boracay Island',
   'description': 'A cozy and luxurious dwelling in the Island of Boracay.'
 },
  {
   'name': 'Ella',
-  'image': slideThree.src,
+  'imageSrc': '/images/gallery-slider/slide-3.jpg',
   'location': 'Baguio City',
   'description': 'A modern look in the summer capital of the Philippines.'
 }
@@ -41,9 +41,10 @@ let intervalId;
 
 function createCarouselItem(slide) {
   const item = document.createElement('div');
+  item.setAttribute('data-item', countCurrent )
   item.classList.add('carousel-item');
   item.innerHTML = `
-  <img src=${slide.image}>
+  <img src=${slide.imageSrc}>
   <div class="carousel-description overlay">
   <p>${slide.location}</p>
   <h3><span>${slide.name}</span> Model House</h3>
@@ -51,10 +52,101 @@ function createCarouselItem(slide) {
   <a class="btn" href="houseandlot.html">View more</a> 
   </div>
   `;
+  countCurrent++
   return item;
 }
+// carouselDisplay.append(createCarouselItem(slides[0]))
 
-function carouselStart() {
+slides.forEach(slide => {
+  let slideItem = createCarouselItem(slide)
+  if(slideItem.dataset.item == 0){
+    console.log(slideItem.dataset.item)
+    slideItem.style.transform = 'translateX(0%)';
+    slideItem.style.transition = 'transform ease-in-out .250s';
+    slideItem.style.zIndex = 1000;
+  } else {
+    slideItem.style.transform = 'translateX(100%)';
+    slideItem.style.zIndex = 0;
+  }
+  carouselDisplay.append(slideItem);
+});
+
+const carouselItems = document.querySelectorAll('.carousel-item');
+
+let currentSlideIndex = 0;
+
+
+const sliding = () => {
+  carouselItems.forEach(item => {
+    let itemIndex = item.dataset.item
+
+    if (currentSlideIndex == itemIndex) {
+      item.setAttribute('data-active-slide', 'active')
+      item.style.transform = 'translateX(0%)';
+      item.style.transition = 'transform ease-in-out .250s';
+      item.style.zIndex = 1000;
+    } else {
+      setTimeout(() => {
+        item.setAttribute('data-active-slide', 'null')
+        item.style.transform = 'translateX(100%)';
+        item.style.zIndex = 0;
+      }, 300)
+    }
+  })
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+}
+setInterval(sliding, 3000)
+
+/* setInterval(()=> {
+
+  let slideItem = createCarouselItem(slides[currentSlideIndex]);
+  slideItem.setAttribute('data-active-slide', 'active');
+  slideItem.style.transform = `translateX(${0}%)`;
+  slideItem.style.transition = 'transform ease-in-out .5s';
+  carouselDisplay.append(slideItem)
+  currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+
+  setTimeout(()=> {
+    let nextSlideItem = createCarouselItem(slides[currentSlideIndex]);
+    nextSlideItem.setAttribute('data-active-slide', 'active');
+    nextSlideItem.style.transform = `translateX(${100}%)`;
+    nextSlideItem.style.transition = 'transform ease-in-out .5s';
+    carouselDisplay.append(nextSlideItem)
+
+    setTimeout(()=> {
+      nextSlideItem.remove()
+    }, 3500)
+    
+    setTimeout(() => {
+      nextSlideItem.style.transform = `translateX(${0}%)`;
+      slideItem.remove()
+    }, 1000)
+  }, 3000)
+
+}, 4000) */
+
+/* const slideTransition = (element) => {
+  element.forEach((elem, index) => {
+    console.log(elem.dataset.item, index, currentSlideIndex)
+    if(currentSlideIndex == index){
+      elem.style.transform = `translateX(100%)`
+      elem.style.transition = 'transform ease-in-out .5s'
+    } else {
+      
+    }
+    if(elem.dataset.activeSlide === 'active' && index <= currentSlideIndex){
+      console.log(elem)
+    } else {
+      elem.style.transform = `translateX(${0}%)` 
+      elem.style.transition = 'transform ease-in-out .5s'
+      currentSlideIndex = (currentSlideIndex + 1) % element.length 
+    }
+  })
+  
+} */
+
+
+/* function carouselStart() {
   const carouselDisplay = document.querySelector('.carousel-slide');
   let countCurrent = 0;
   let currentSlide = null;
@@ -100,7 +192,7 @@ function carouselStart() {
   setInterval(switchSlide, 4000); // Switch to next slide periodically
 }
 
-carouselStart();
+// carouselStart();
 
 
 nextBtn.addEventListener('click', () => {
@@ -155,7 +247,14 @@ prevBtn.addEventListener('click', () => {
     }, 100);
     currentSlide = prevSlide
   } switchSlide()
-})
+}) */
+
+
+
+
+
+
+
 
 // carouselDisplay.innerHTML = `
   

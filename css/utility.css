@@ -267,3 +267,15 @@ section:not(section#contact-section) {
 #type-text {
   color: rgba(255,255,255, .8);
 }
+
+@keyframes slide-in {
+  25% {
+    transform: translateX(50%);
+  }
+  50% {
+    transform: translateX(75%);
+  }
+  75% {
+    transform: translateX(100%);
+  }
+}
